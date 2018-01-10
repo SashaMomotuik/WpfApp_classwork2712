@@ -47,12 +47,13 @@ namespace WpfApp_classwork2712
 
             ShopWorkerAddViewModel shopWorker = new ShopWorkerAddViewModel
             {
-                Name = "shopworkname",
-                Email = "shopworkemail",
-                SurName = "shopworksurname",
-                Password = "123456",
-                IsLocked = true
-
+                Name = "Olexandr",
+                Email = "sasha.momotuik@gmail.com",
+                SurName = "Momotuik",
+                Password = "123456qwerty",
+                IsLocked = true,
+                RoleId=1
+                
 
             };
             _sopWorkManager.Add(shopWorker);

@@ -18,6 +18,7 @@ namespace BLL.ViewModels
 
         public string Password { get; set; }
 
+        public int RoleId { get; set; }  // зробити умову якщо значення встановлено -1 то юзер створюється без ролі 
 
 
 

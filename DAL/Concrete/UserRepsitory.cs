@@ -48,13 +48,36 @@ namespace DAL.Concrete
 
                 }
             }
-          
 
 
 
+            _con.Close();
 
             return id;
         }
+
+        public void SetRole(UserRole ur)
+        {
+            string query = "INSERT INTO UserRoles " +
+            "(UserId, RoleId) " +
+             "VALUES " +
+            $"({ur.UserId}, {ur.RoleId}) ";
+
+            _con.Open();
+
+            using (SqlCommand command = new SqlCommand(query, _con))
+            {
+                int res = command.ExecuteNonQuery();
+                if (res != 1)
+                {
+                  //  помилка недоавилося
+                }
+            }
+
+        }
+
+        
+
 
 
 

@@ -45,11 +45,26 @@ namespace BLL.Concrete
             //save this hash to the database
             userAdd.Password = cryptoService.Compute(shopWorker.Password);
 
-            _userRepsitory.Add(userAdd);
+           int _userid =  _userRepsitory.Add(userAdd);  // повертається ІД доданого юзера
+
+
+            if (shopWorker.RoleId != -1)
+            {
+                //додаю роль при створенні Юзера
+                UserRole userRole = new UserRole
+                {
+                    UserId = _userid,
+                    RoleId = shopWorker.RoleId
+                };
+
+                _userRepsitory.SetRole(userRole);
+            }
+
 
             return 0;
         }
 
+        //потрібно щоб роль додавалася при додаванні юзера а також потім можна було змінювати
 
 
     }
